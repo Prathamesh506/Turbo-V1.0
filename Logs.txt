@@ -1,0 +1,28 @@
+[03/08/2025 11:20:42 PM:asyncio:1826:ERROR] Future exception was never retrieved
+future: <Future finished exception=OperationFailure("Index build failed: e753c22f-b9a4-46c0-a44c-f1942b2182af: Collection Cluster0.search_data ( d179f165-b5cc-4627-aacf-b39eeec2bb9d ) :: caused by :: dropIndexes command, full error: {'ok': 0.0, 'errmsg': 'Index build failed: e753c22f-b9a4-46c0-a44c-f1942b2182af: Collection Cluster0.search_data ( d179f165-b5cc-4627-aacf-b39eeec2bb9d ) :: caused by :: dropIndexes command', 'code': 276, 'codeName': 'IndexBuildAborted', '$clusterTime': {'clusterTime': Timestamp(1741456242, 64), 'signature': {'hash': b'\\x91)\\x8f\\xd4\\xb4\\xad\\xc1R\\x1e\\xbfYe@H\\xb7\\xff\\xf6=o\\xdf', 'keyId': 7428306106352402483}}, 'operationTime': Timestamp(1741456242, 64)}")>
+Traceback (most recent call last):
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymongo\synchronous\collection.py", line 2337, in create_index
+    return (self._create_indexes([index], session, **cmd_options))[0]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymongo\_csot.py", line 120, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymongo\synchronous\collection.py", line 2211, in _create_indexes
+    self._command(
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymongo\synchronous\collection.py", line 600, in _command
+    return conn.command(
+           ^^^^^^^^^^^^^
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymongo\synchronous\helpers.py", line 45, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymongo\synchronous\pool.py", line 538, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymongo\synchronous\network.py", line 218, in command
+    helpers_shared._check_command_response(
+  File "C:\Users\GIVIX\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymongo\helpers_shared.py", line 247, in _check_command_response
+    raise OperationFailure(errmsg, code, response, max_wire_version)
+pymongo.errors.OperationFailure: Index build failed: e753c22f-b9a4-46c0-a44c-f1942b2182af: Collection Cluster0.search_data ( d179f165-b5cc-4627-aacf-b39eeec2bb9d ) :: caused by :: dropIndexes command, full error: {'ok': 0.0, 'errmsg': 'Index build failed: e753c22f-b9a4-46c0-a44c-f1942b2182af: Collection Cluster0.search_data ( d179f165-b5cc-4627-aacf-b39eeec2bb9d ) :: caused by :: dropIndexes command', 'code': 276, 'codeName': 'IndexBuildAborted', '$clusterTime': {'clusterTime': Timestamp(1741456242, 64), 'signature': {'hash': b'\x91)\x8f\xd4\xb4\xad\xc1R\x1e\xbfYe@H\xb7\xff\xf6=o\xdf', 'keyId': 7428306106352402483}}, 'operationTime': Timestamp(1741456242, 64)}
