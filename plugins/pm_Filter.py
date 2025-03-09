@@ -47,7 +47,7 @@ async def auto_filter(client, msg):
 
     else:     
         as_msg = await msg.reply_text("<b>initiating..</b>")
-        await asyncio.sleep(0.2)
+        await asyncio.sleep(0.3)
         as_msg = await as_msg.edit_text("<b>Rapid AutoCorrect⚡</b>")
 
         temp_detail = search_details.copy()
@@ -59,7 +59,7 @@ async def auto_filter(client, msg):
             if files:
                 search = temp_search
                 await db.store_search(msg.from_user.id, search)
-                await as_msg.delete()
+        await as_msg.delete()
                     
 
     if files:
